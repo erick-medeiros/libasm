@@ -23,5 +23,9 @@ int main(){
     int lenw = ft_write(1, "write\n", 7);
     printf("%d\n", lenw);
 
+    char *sclone = ft_strdup("pow");
+    printf("%s\n", sclone);
+    free(sclone);
+
     return 0;
 }

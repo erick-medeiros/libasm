@@ -14,6 +14,7 @@ FILES += ft_strcpy.s
 FILES += ft_strcmp.s
 FILES += ft_read.s
 FILES += ft_write.s
+FILES += ft_strdup.s
 
 SRC = $(addprefix $(SRC_DIR), $(FILES))
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.s=.o))
@@ -49,6 +50,6 @@ bear:
 	bear -- make re
 
 leaks:
-	valgrind -q --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME)
+	valgrind -q --leak-check=full --show-leak-kinds=all --track-origins=yes ./bin.out
 
 .PHONY: all clean fclean re norm bear

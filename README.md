@@ -13,6 +13,7 @@
 - test: bitwise AND (flags: ZF, SF)
 - sub: equal of cmp, save result in first arg
 - movx: move with sign extension (preserve sign)
+- push, pop: stack
 
 ## registers
 
