@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <fcntl.h>
+#include <strings.h>
 #include "./src/libasm.h"
 
 int main(){
@@ -10,5 +12,13 @@ int main(){
     printf("%s\n", ft_strcpy(s2,s));
 
     printf("%d\n", ft_strcmp(s2,s));
+
+    char fd = open("./Makefile",0);
+
+    char buff[11];
+    int len = ft_read(fd, buff, 10);
+    buff[len]=0;
+    printf("%d %s\n", len, buff);
+
     return 0;
 }

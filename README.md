@@ -28,3 +28,7 @@
 - Sign Flag (SF)
 - Carry Flag (CF)
 - Overflow Flag (OF)
+
+## syscalls
+
+- https://x64.syscall.sh/

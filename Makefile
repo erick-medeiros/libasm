@@ -12,6 +12,7 @@ HEADERS = src/libasm.h
 FILES = ft_strlen.s
 FILES += ft_strcpy.s
 FILES += ft_strcmp.s
+FILES += ft_read.s
 
 SRC = $(addprefix $(SRC_DIR), $(FILES))
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.s=.o))
