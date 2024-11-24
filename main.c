@@ -20,5 +20,8 @@ int main(){
     buff[len]=0;
     printf("%d %s\n", len, buff);
 
+    int lenw = ft_write(1, "write\n", 7);
+    printf("%d\n", lenw);
+
     return 0;
 }
