@@ -1,8 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "./src/libasm.h"
 
 int main(){
     char *s = "hello";
     printf("%s %ld \n", s, ft_strlen(s));
+
+    char s2[6] = {'a','b','c','d','e',0};
+    printf("%s\n", ft_strcpy(s2,s));
+
+    printf("%d\n", ft_strcmp(s2,s));
     return 0;
 }

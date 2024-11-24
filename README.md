@@ -11,10 +11,12 @@
 - mov: data transfer instruction (destination, source)
 - lea: load effective address (destination, source) (not access memory)
 - test: bitwise AND (flags: ZF, SF)
-- 
+- sub: equal of cmp, save result in first arg
+- movx: move with sign extension (preserve sign)
 
 ## registers
 
+- bits: rax (64), eax (32), ax (16), ah(1/2) al(2/2) (8 bit)
 - rax: principal
 - rdi: first argument of function
 - rsi: second argument of function
