@@ -10,7 +10,7 @@ OBJ_DIR = obj/
 HEADERS = src/libasm.h
 
 FILES = ft_strlen.s
-#FILES += ft_strlen.s
+FILES += ft_strcpy.s
 
 SRC = $(addprefix $(SRC_DIR), $(FILES))
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.s=.o))
