@@ -7,21 +7,25 @@ RM = rm -fr
 SRC_DIR = src/
 OBJ_DIR = obj/
 
-HEADERS = src/libasm.h
-
 FILES = ft_strlen.s
 FILES += ft_strcpy.s
 FILES += ft_strcmp.s
 FILES += ft_read.s
 FILES += ft_write.s
 FILES += ft_strdup.s
+FILES += ft_list_push_front.s
 
 SRC = $(addprefix $(SRC_DIR), $(FILES))
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.s=.o))
 
+FILES_BONUS = ft_strlen.s
+
+SRC_BONUS = $(addprefix $(SRC_DIR), $(FILES_BONUS))
+OBJ_BONUS = $(addprefix $(OBJ_DIR), $(FILES_BONUS:.s=.o))
+
 REQUIRED_DIRS = $(sort $(dir $(OBJ)))
 
-$(NAME): $(REQUIRED_DIRS) $(HEADERS) $(OBJ)
+$(NAME): $(REQUIRED_DIRS) $(OBJ)
 #	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 

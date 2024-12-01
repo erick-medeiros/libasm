@@ -33,3 +33,8 @@
 ## syscalls
 
 - https://x64.syscall.sh/
+
+## questions
+
+- malloc change rsi? (error by inconsistent rsi after use malloc)
+    - working with valgrind

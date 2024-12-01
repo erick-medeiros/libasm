@@ -3,6 +3,7 @@
 #include <fcntl.h>
 #include <strings.h>
 #include "./src/libasm.h"
+#include "./src/libasm_bonus.h"
 
 int main(){
     char *s = "hello";
@@ -26,6 +27,15 @@ int main(){
     char *sclone = ft_strdup("pow");
     printf("%s\n", sclone);
     free(sclone);
+
+    t_list *head = NULL;
+    ft_list_push_front(&head, "foo");
+    printf("%s\n", (char *)head->data);
+
+    ft_list_push_front(&head, "bar");
+    printf("%s\n", (char *)head->next->data);
+    free(head->next);
+    free(head);
 
     return 0;
 }
