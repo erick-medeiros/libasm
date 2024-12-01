@@ -34,6 +34,10 @@ int main(){
 
     ft_list_push_front(&head, "bar");
     printf("%s\n", (char *)head->next->data);
+
+    printf("%d\n", ft_list_size(head));
+    printf("%d\n", ft_list_size(0));
+
     free(head->next);
     free(head);
 

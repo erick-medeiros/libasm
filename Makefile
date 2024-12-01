@@ -13,7 +13,9 @@ FILES += ft_strcmp.s
 FILES += ft_read.s
 FILES += ft_write.s
 FILES += ft_strdup.s
+#bonus
 FILES += ft_list_push_front.s
+FILES += ft_list_size.s
 
 SRC = $(addprefix $(SRC_DIR), $(FILES))
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.s=.o))
