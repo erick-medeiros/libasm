@@ -41,5 +41,17 @@ int main(){
     free(head->next);
     free(head);
 
+    t_list *head2 = NULL;
+    ft_list_push_front(&head2, "a");
+    ft_list_push_front(&head2, "b");
+    ft_list_push_front(&head2, "c");
+    printf("%d\n", ft_list_size(head2));
+    ft_list_remove_if(&head2, "a", ft_strcmp);
+    printf("%d\n", ft_list_size(head2));
+
+    free(head2->next->next);
+    free(head2->next);
+    free(head2);
+
     return 0;
 }

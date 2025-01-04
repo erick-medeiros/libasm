@@ -16,6 +16,7 @@ FILES += ft_strdup.s
 #bonus
 FILES += ft_list_push_front.s
 FILES += ft_list_size.s
+FILES += ft_list_remove_if.s
 
 SRC = $(addprefix $(SRC_DIR), $(FILES))
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.s=.o))

@@ -21,6 +21,7 @@
 - rax: principal
 - rdi: first argument of function
 - rsi: second argument of function
+- args: rdi, rsi, rdx, rcx, r8, r9
 - rcx: rc is counter by convention
 - blx: zzZ
 
@@ -29,6 +30,10 @@
 - Sign Flag (SF)
 - Carry Flag (CF)
 - Overflow Flag (OF)
+
+## callee-saved registers
+- r12, r13, r14, r15, rbx, rsp, rbp
+    - https://stackoverflow.com/questions/18024672/what-registers-are-preserved-through-a-linux-x86-64-function-call 
 
 ## syscalls
 
