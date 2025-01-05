@@ -1,3 +1,15 @@
+; ************************************************************************** ;
+;                                                                            ;
+;                                                        :::      ::::::::   ;
+;   c.c                                                :+:      :+:    :+:   ;
+;                                                    +:+ +:+         +:+     ;
+;   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        ;
+;                                                +#+#+#+#+#+   +#+           ;
+;   Created: 2025/01/05 19:09:29 by eandre-f          #+#    #+#             ;
+;   Updated: 2025/01/05 19:09:29 by eandre-f         ###   ########.fr       ;
+;                                                                            ;
+; ************************************************************************** ;
+
 extern __errno_location
 extern ft_strlen
 extern ft_strcpy
@@ -7,6 +19,9 @@ section .text
     global ft_strdup
 
 ft_strdup:
+    test rdi, rdi
+    je _invalid_arg
+
     xor rcx, rcx
 
     call ft_strlen
@@ -24,9 +39,12 @@ ft_strdup:
 
 	ret
 
-_on_error:
-    mov r8, rax
+_invalid_arg:
     call __errno_location
-    mov [rax], r8
-    mov rax, -1
+    mov qword [rax], 22
+    xor rax, rax
+    ret
+
+_on_error:
+    leave
     ret

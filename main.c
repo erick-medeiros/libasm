@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 13:13:22 by eandre-f          #+#    #+#             */
-/*   Updated: 2025/01/05 14:09:15 by eandre-f         ###   ########.fr       */
+/*   Updated: 2025/01/05 19:36:04 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,16 @@ int main() {
     ssize_t lenw3 = ft_write(42, NULL, 7);
     printf("ft_write: %ld errno: %d\n", lenw3, errno);
 
-    char *sclone = ft_strdup("pow");
-    printf("%s\n", sclone);
+    // test
+    errno = 0;
+    char *sclone = ft_strdup("hello world");
+    printf("ft_strdup: %s errno: %d\n", sclone, errno);
     free(sclone);
-
+    // test
+    errno = 0;
+    char *sclone2 = ft_strdup(NULL);
+    printf("ft_strdup: %p errno: %d\n", sclone2, errno);
+    
     /*
     t_list *head = NULL;
     ft_list_push_front(&head, "foo");
