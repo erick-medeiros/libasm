@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 13:13:22 by eandre-f          #+#    #+#             */
-/*   Updated: 2025/01/05 13:42:43 by eandre-f         ###   ########.fr       */
+/*   Updated: 2025/01/05 13:56:05 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,25 @@ int main() {
     char *ret5 = ft_strcpy(s2, NULL);
     printf("ft_strcpy: %s errno: %d\n", ret5, errno);
 
-    printf("%d\n", ft_strcmp(s2,s));
+    // test
+    errno = 0;
+    int ret6 = ft_strcmp(s2, s);
+    printf("ft_strcmp: %d errno: %d\n", ret6, errno);
+
+    // test
+    errno = 0;
+    int ret7 = ft_strcmp(NULL, s);
+    printf("ft_strcmp: %d errno: %d\n", ret7, errno);
+
+    // test
+    errno = 0;
+    int ret8 = ft_strcmp(s2, NULL);
+    printf("ft_strcmp: %d errno: %d\n", ret8, errno);
+
+    // test
+    errno = 0;
+    int ret9 = ft_strcmp("asdasd", "kjklasd");
+    printf("ft_strcmp: %d errno: %d\n", ret9, errno);
 
     char fd = open("./Makefile",0);
 
