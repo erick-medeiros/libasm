@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 13:13:22 by eandre-f          #+#    #+#             */
-/*   Updated: 2025/01/05 14:04:05 by eandre-f         ###   ########.fr       */
+/*   Updated: 2025/01/05 14:09:15 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,28 @@ int main() {
 
     // test
     errno = 0;
-    int len2 = ft_read(fd, NULL, 10);
-    printf("ft_read: %d %s errno: %d\n", len2, buff, errno);
+    ssize_t len2 = ft_read(fd, NULL, 10);
+    printf("ft_read: %ld %s errno: %d\n", len2, buff, errno);
 
     // test
-    int lenw = ft_write(1, "write\n", 7);
-    printf("%d\n", lenw);
+    errno = 0;
+    ssize_t len3 = ft_read(42, NULL, 10);
+    printf("ft_read: %ld %s errno: %d\n", len3, buff, errno);
+
+    // test
+    errno = 0;
+    ssize_t lenw1 = ft_write(1, "write\n", 7);
+    printf("ft_write: %ld errno: %d\n", lenw1, errno);
+
+    // test
+    errno = 0;
+    ssize_t lenw2 = ft_write(1, NULL, 7);
+    printf("ft_write: %ld errno: %d\n", lenw2, errno);
+
+    // test
+    errno = 0;
+    ssize_t lenw3 = ft_write(42, NULL, 7);
+    printf("ft_write: %ld errno: %d\n", lenw3, errno);
 
     char *sclone = ft_strdup("pow");
     printf("%s\n", sclone);
