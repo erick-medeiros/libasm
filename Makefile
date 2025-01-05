@@ -1,6 +1,6 @@
 NAME = libasm.a
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 CC = cc
 RM = rm -fr
 
@@ -29,8 +29,6 @@ OBJ_BONUS = $(addprefix $(OBJ_DIR), $(FILES_BONUS:.s=.o))
 REQUIRED_DIRS = $(sort $(dir $(OBJ)))
 
 $(NAME): $(REQUIRED_DIRS) $(OBJ)
-#	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
-	ar rcs $(NAME) $(OBJ)
 
 all: $(NAME)
 
@@ -47,16 +45,17 @@ $(REQUIRED_DIRS):
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.s
 	nasm -g -felf64 -o $@ $<
+	ar rcs $(NAME) $@
 
 # utils
 
-test:
+test: all
 	$(CC) $(CFLAGS) main.c -L. -lasm -o bin.out
 
 bear:
 	bear -- make re
 
-leaks:
+leaks: test
 	valgrind -q --leak-check=full --show-leak-kinds=all --track-origins=yes ./bin.out
 
 .PHONY: all clean fclean re norm bear
