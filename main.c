@@ -1,13 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/05 13:13:22 by eandre-f          #+#    #+#             */
+/*   Updated: 2025/01/05 13:25:31 by eandre-f         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
 #include <strings.h>
+#include <errno.h>
 #include "./src/libasm.h"
 #include "./src/libasm_bonus.h"
 
-int main(){
+int main() {
     char *s = "hello";
-    printf("%s %ld \n", s, ft_strlen(s));
+
+    // test 1
+    errno = 0;
+    size_t ret1 = ft_strlen(s);
+    printf("ft_strlen: %s %ld %d\n", s, ret1, errno);
+
+    // test 2
+    errno = 0;
+    size_t ret2 = ft_strlen(NULL);
+    printf("ft_strlen: %s %ld %d\n", s, ret2, errno);
 
     char s2[6] = {'a','b','c','d','e',0};
     printf("%s\n", ft_strcpy(s2,s));
@@ -41,6 +63,7 @@ int main(){
     free(head->next);
     free(head);
 
+    /*
     t_list *head2 = NULL;
     ft_list_push_front(&head2, "a");
     ft_list_push_front(&head2, "b");
@@ -52,6 +75,7 @@ int main(){
     free(head2->next->next);
     free(head2->next);
     free(head2);
+    */
 
     return 0;
 }
