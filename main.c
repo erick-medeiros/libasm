@@ -6,7 +6,7 @@
 /*   By: eandre-f <eandre-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 13:13:22 by eandre-f          #+#    #+#             */
-/*   Updated: 2025/01/05 13:56:05 by eandre-f         ###   ########.fr       */
+/*   Updated: 2025/01/05 14:04:05 by eandre-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,21 @@ int main() {
     int ret9 = ft_strcmp("asdasd", "kjklasd");
     printf("ft_strcmp: %d errno: %d\n", ret9, errno);
 
+    // test
     char fd = open("./Makefile",0);
 
     char buff[11];
+    errno = 0;
     int len = ft_read(fd, buff, 10);
     buff[len]=0;
-    printf("%d %s\n", len, buff);
+    printf("ft_read: %d %s errno: %d\n", len, buff, errno);
 
+    // test
+    errno = 0;
+    int len2 = ft_read(fd, NULL, 10);
+    printf("ft_read: %d %s errno: %d\n", len2, buff, errno);
+
+    // test
     int lenw = ft_write(1, "write\n", 7);
     printf("%d\n", lenw);
 
@@ -81,6 +89,7 @@ int main() {
     printf("%s\n", sclone);
     free(sclone);
 
+    /*
     t_list *head = NULL;
     ft_list_push_front(&head, "foo");
     printf("%s\n", (char *)head->data);
@@ -94,7 +103,6 @@ int main() {
     free(head->next);
     free(head);
 
-    /*
     t_list *head2 = NULL;
     ft_list_push_front(&head2, "a");
     ft_list_push_front(&head2, "b");
